@@ -37,11 +37,11 @@ public class FileUtil {
     	InputStream is = null;
     	FileOutputStream os = null;
    
-    	if(!dbFile.exists()){//�ж��ļ����Ƿ���ڣ������ھ��½�һ��
+    	if(!dbFile.exists()){//
     	Toast.makeText(context, "首次加载，数据初始化中...", Toast.LENGTH_LONG).show();
     		dbFile.getParentFile().mkdirs();
 	    	try{
-	    		os = new FileOutputStream(dbFileName);//�õ����ݿ��ļ���д����
+	    		os = new FileOutputStream(dbFileName);//
 	    		is = context.getResources().getAssets().open(DATABASENAME);//�õ����ݿ��ļ���������
 	    		  byte[] buffer = new byte[1024];
 	    	        int count = 0; 
@@ -54,9 +54,15 @@ public class FileUtil {
 	    	} catch (IOException e) {
 				e.printStackTrace();
 			}finally{   
-	    		try { 
-					is.close();
-					os.close();
+	    		try {
+					if(os!= null){
+						os.close();
+						os=null;
+					}
+					if(is!=null){
+						is.close();
+						is = null;
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				} 

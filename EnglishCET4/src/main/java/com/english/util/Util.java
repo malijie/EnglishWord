@@ -50,7 +50,7 @@ public class Util {
     	FileOutputStream os = null;
   		Logger.d(TAG, "dbFile.exists()=" + dbFile.exists());
     	if(!dbFile.exists()){//�ж��ļ����Ƿ���ڣ������ھ��½�һ��
-    	Toast.makeText(context, "�״����������ݼ�����...", Toast.LENGTH_LONG).show();
+    	Toast.makeText(context, "�״...", Toast.LENGTH_LONG).show();
     		dbFile.getParentFile().mkdirs();
 	    	try{
 	    		os = new FileOutputStream(dbFileName);//�õ����ݿ��ļ���д����
@@ -94,19 +94,13 @@ public class Util {
 				try{
 					Logger.d(TAG, "start unzip file to sd card");
 
-					//������ѹĿ��Ŀ¼
 					File file = new File(outputDirectory);
-					//���Ŀ��Ŀ¼�����ڣ��򴴽�
 					if (!file.exists()) {
 						file.mkdirs();
 					}
 					InputStream inputStream = null;
-					//��ѹ���ļ�
 					inputStream = context.getAssets().open(assetName);
-
 					ZipInputStream zipInputStream = new ZipInputStream(inputStream);
-
-					//��ȡһ�������
 					ZipEntry zipEntry = zipInputStream.getNextEntry();
 
 					//ʹ��1M buffer
@@ -114,17 +108,13 @@ public class Util {
 					//��ѹʱ�ֽڼ���
 					int count = 0;
 
-					//��������Ϊ��˵���Ѿ�����������ѹ�������ļ���Ŀ¼
 					while (zipEntry != null) {
-						//�����һ��Ŀ¼
 						if (zipEntry.isDirectory()) {
 							file = new File(outputDirectory + File.separator + zipEntry.getName());
 							file.mkdir();
 						} else {
-							//������ļ�
 							file = new File(outputDirectory + File.separator
 									+ zipEntry.getName());
-							//�������ļ�
 							file.createNewFile();
 							FileOutputStream fileOutputStream = new FileOutputStream(file);
 							while ((count = zipInputStream.read(buffer)) > 0) {
@@ -132,13 +122,11 @@ public class Util {
 							}
 							fileOutputStream.close();
 						}
-						//��λ����һ���ļ����
 						zipEntry = zipInputStream.getNextEntry();
 					}
 					zipInputStream.close();
 					Logger.d(TAG, "complete unzip to sd card");
 
-					//���浱ǰ��ѹ״̬
 					saveUnZipStatusEvent(assetName);
 
 				}catch(IOException e){
@@ -204,7 +192,7 @@ public class Util {
 	 * @param listener ���ȷ���¼�
 	 */
 	public static void showAlertDialog(Context context, String title, String msg, final IDialogOnClickListener listener){
-		AlertDialog.Builder builder = new AlertDialog.Builder(context, com.english.cet4.R.style.Base_V7_Theme_AppCompat_Dialog);
+		AlertDialog.Builder builder = new AlertDialog.Builder(context, com.english.cet4.R.style.Theme_AppCompat);
 
 		View v = Util.getView(com.english.cet4.R.layout.alert_dialog_layout);
 		builder.setView(v);

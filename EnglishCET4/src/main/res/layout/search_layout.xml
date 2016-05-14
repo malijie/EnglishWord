@@ -13,7 +13,8 @@
  	    android:background="@color/words_layout_bg">
  	    <EditText 
  	        android:id="@id/search_layout_edittext_input"
- 	        android:layout_width="250dip"
+ 	        android:layout_width="0dp"
+			android:layout_weight="12"
  	        android:layout_height="wrap_content"
  	        android:layout_marginLeft="10dip"
  	        android:layout_gravity="center_vertical"
@@ -21,8 +22,9 @@
  	        android:textColor="@color/symbol_font"/>
  	    <ImageButton 
  	        android:id="@id/search_layout_button_search"
- 	        android:layout_width="wrap_content"
- 	        android:layout_height="wrap_content"
+ 	        android:layout_width="0dp"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
  	        android:layout_marginLeft="10dip"
  	        android:textSize="13sp"
  	        android:layout_gravity="right|center"
