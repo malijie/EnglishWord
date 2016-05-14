@@ -192,7 +192,7 @@ public class Util {
 	 * @param listener ���ȷ���¼�
 	 */
 	public static void showAlertDialog(Context context, String title, String msg, final IDialogOnClickListener listener){
-		AlertDialog.Builder builder = new AlertDialog.Builder(context, com.english.cet4.R.style.Theme_AppCompat);
+		AlertDialog.Builder builder = new AlertDialog.Builder(context, com.english.cet4.R.style.Base_Theme_AppCompat_Dialog_Alert);
 
 		View v = Util.getView(com.english.cet4.R.layout.alert_dialog_layout);
 		builder.setView(v);
