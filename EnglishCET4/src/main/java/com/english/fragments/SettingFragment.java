@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 
 import com.english.activity.HelpAndTipActivity;
 import com.english.ad.AdUtil;
+import com.english.pay.PayManager;
 import com.english.widget.FontDialog;
 
 
@@ -74,6 +75,7 @@ public class SettingFragment extends Fragment implements OnClickListener {
 		case com.english.cet4.R.id.setting_button_feedback:
 			 //��ʾ�û�����
 //			AdUtil.showFeedback(getActivity());
+			PayManager.pay(getActivity());
 			break;
 		}  
 	}
