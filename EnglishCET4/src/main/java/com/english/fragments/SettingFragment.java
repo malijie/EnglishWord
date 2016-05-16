@@ -14,6 +14,7 @@ import com.english.activity.HelpAndTipActivity;
 import com.english.ad.AdUtil;
 import com.english.pay.PayManager;
 import com.english.widget.FontDialog;
+import com.wanpu.pay.PayConnect;
 
 
 public class SettingFragment extends Fragment implements OnClickListener {
@@ -69,13 +70,11 @@ public class SettingFragment extends Fragment implements OnClickListener {
 			break;
 
 		case com.english.cet4.R.id.setting_button_update:
-//			AdUtil.checkUpdate(getActivity());
+			AdUtil.checkUpdate(getActivity());
 			break;
 		
 		case com.english.cet4.R.id.setting_button_feedback:
-			 //��ʾ�û�����
-//			AdUtil.showFeedback(getActivity());
-			PayManager.pay(getActivity());
+			AdUtil.showFeedback(getActivity());
 			break;
 		}  
 	}

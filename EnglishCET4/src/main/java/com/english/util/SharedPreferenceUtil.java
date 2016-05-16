@@ -14,6 +14,12 @@ public class SharedPreferenceUtil {
     //SharePreference名称
     private static final String PREF_DATA_NAME = "english_lesson_data";
 
+	//支付结果key
+	private static final String PREF_PAY_RESULT = "pay_result";
+
+	//sp课程名称key
+	private static final String PREF_PAY_RESULT_KEY = "isSuccess";
+
     //sp课程名称key
     private static final String PREF_LESSON_KEY = "lesson";
 
@@ -93,5 +99,11 @@ public class SharedPreferenceUtil {
         return context.getSharedPreferences(PREF_DATA_NAME, Context.MODE_PRIVATE).getInt(PREF_LESSON_KEY + lessonNum,0);
     }
 
+	public static void savePayResult(Context context,boolean result){
+		context.getSharedPreferences(PREF_PAY_RESULT, Context.MODE_PRIVATE).edit().putBoolean(PREF_PAY_RESULT_KEY ,result).commit();
+	}
 
+	public static boolean getPayResult(Context context){
+		return context.getSharedPreferences(PREF_PAY_RESULT, Context.MODE_PRIVATE).getBoolean(PREF_PAY_RESULT_KEY,false);
+	}
 }

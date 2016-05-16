@@ -16,14 +16,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.English;
+import com.english.ad.AdUtil;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
+import com.english.pay.PayManager;
 import com.english.util.Logger;
 import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
+import com.wanpu.pay.PayConnect;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -64,6 +67,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 	private EnglishDBOperate eOperate = null;
 
 	private EnglishMediaPlayer mEnglishMediaPlayer = null;
+	private PayManager mPayManager = null;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -98,9 +102,9 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 
 		sDateFormat = getSimpleDateFormatInstance();
         progress = SharedPreferenceUtil.loadLessonProgress(WordsDetailActivity.this, lessonNum);
-        Logger.d("MLJ", "initData= progress==" + progress);
 
         mEnglishMediaPlayer = EnglishMediaPlayer.getInstance(this);
+		mPayManager = PayManager.getInstance(this);
 
 	}
 	
@@ -185,7 +189,19 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 			break;
 		case com.english.cet4.R.id.word_detail_button_volume:
 				//播放单词音频
-				mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
+				if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
+					mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
+				}else{
+					Util.showAlertDialog(WordsDetailActivity.this,
+							"购买读音", "购买标准发音，仅需2元", new IDialogOnClickListener() {
+								@Override
+								public void onClick() {
+Logger.d("MLJ","onClick");
+									mPayManager.pay(WordsDetailActivity.this);
+								}
+							});
+
+				}
 			break;
         case com.english.cet4.R.id.word_detail_button_gohaed:
             //从头开始学习
@@ -350,6 +366,6 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
         super.onStop();
         mEnglishMediaPlayer.stopPlay();
         mIsGoHead = false;
-
+        PayConnect.getInstance(this).close();
     }
 }

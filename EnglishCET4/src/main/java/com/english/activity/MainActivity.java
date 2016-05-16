@@ -13,11 +13,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.english.ad.AdUtil;
 import com.english.fragments.SearchFragment;
 import com.english.fragments.SettingFragment;
 import com.english.fragments.UnknowWordsFragment;
 import com.english.fragments.WordsFragment;
 import com.english.util.Profile;
+import com.wanpu.pay.PayConnect;
 
 public class MainActivity extends Activity implements OnClickListener {
 	
@@ -49,9 +51,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.english.cet4.R.layout.activity_main);
-		
+		PayConnect.getInstance(AdUtil.APP_ID,AdUtil.APP_ID, this);
+
 		initView();
-//		AdUtil.showPopAd(this);
 		setTabSelection(0);
 	} 
 	
