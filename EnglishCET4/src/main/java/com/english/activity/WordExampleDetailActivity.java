@@ -79,7 +79,7 @@ public class WordExampleDetailActivity extends Activity implements OnClickListen
 		switch(v.getId()){
 		case com.english.cet4.R.id.word_example_button_delete:
 			eOperate.updateWordIsKnownById(false, id);
-			Toast.makeText(WordExampleDetailActivity.this, "已删除！", Toast.LENGTH_SHORT).show();
+			Toast.makeText(WordExampleDetailActivity.this, "设置成功！", Toast.LENGTH_SHORT).show();
 			break;
 		} 
 	}
