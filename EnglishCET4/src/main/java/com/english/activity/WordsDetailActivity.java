@@ -193,10 +193,9 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 					mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
 					Util.showAlertDialog(WordsDetailActivity.this,
-							"购买读音", "购买标准发音，仅需2元", new IDialogOnClickListener() {
+							"购买读音", "购买标准发音，仅需4.99元", new IDialogOnClickListener() {
 								@Override
 								public void onClick() {
-Logger.d("MLJ","onClick");
 									mPayManager.pay(WordsDetailActivity.this);
 								}
 							});

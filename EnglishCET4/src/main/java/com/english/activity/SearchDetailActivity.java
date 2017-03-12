@@ -13,8 +13,14 @@ import android.widget.Toast;
 
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
+import com.english.pay.PayManager;
+import com.english.util.SharedPreferenceUtil;
+import com.english.util.Util;
+
+import static com.english.media.EnglishMediaPlayer.mEnglishMediaPlayer;
 
 public class SearchDetailActivity extends Activity implements OnClickListener {
 	private TextView textWord = null;
@@ -84,7 +90,18 @@ public class SearchDetailActivity extends Activity implements OnClickListener {
 			Toast.makeText(SearchDetailActivity.this, "已添加到生词库", Toast.LENGTH_SHORT).show();
 			break;
         case com.english.cet4.R.id.search_detail_button_volume:
-            mPlayer.playTheWordTune(wordInfo.getWord());
+			if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
+				mPlayer.playTheWordTune(wordInfo.getWord());
+			}else{
+				Util.showAlertDialog(this,
+						"购买读音", "购买标准发音，仅需4.99元", new IDialogOnClickListener() {
+							@Override
+							public void onClick() {
+								PayManager.getInstance(SearchDetailActivity.this).pay(SearchDetailActivity.this);
+							}
+						});
+
+			}
 		}
 	}
 

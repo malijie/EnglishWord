@@ -15,8 +15,12 @@ import android.widget.Toast;
 
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
+import com.english.pay.PayManager;
+import com.english.util.SharedPreferenceUtil;
+import com.english.util.Util;
 
 public class UnknownWordDetailActivity extends Activity implements OnClickListener {
 	private WordInfo mWordInfo = null;
@@ -89,7 +93,18 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 			}
             break;
             case com.english.cet4.R.id.unkonwn_words_detail_button_volume:
-                mPlayer.playTheWordTune(mWordInfo.getWord());
+				if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
+					mPlayer.playTheWordTune(mWordInfo.getWord());
+				}else{
+					Util.showAlertDialog(this,
+							"购买读音", "购买标准发音，仅需4.99元", new IDialogOnClickListener() {
+								@Override
+								public void onClick() {
+									PayManager.getInstance(UnknownWordDetailActivity.this).pay(UnknownWordDetailActivity.this);
+								}
+							});
+
+				}
                 break;
 		}
 	}

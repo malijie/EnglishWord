@@ -50,7 +50,7 @@ public class PayManager {
         PayConnect.getInstance(context).pay(context,
                 System.currentTimeMillis() + "",
                 device,
-                (float) 2.0,
+                (float) 4.99,
                 "标准读音",
                 "购买美式标准读音",
                 "",
