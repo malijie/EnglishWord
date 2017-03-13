@@ -193,7 +193,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 					mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
 					Util.showAlertDialog(WordsDetailActivity.this,
-							"购买读音", "购买标准发音，仅需4.99元", new IDialogOnClickListener() {
+							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,PayManager.PAY_DIALOG_TIP, new IDialogOnClickListener() {
 								@Override
 								public void onClick() {
 									mPayManager.pay(WordsDetailActivity.this);
@@ -205,7 +205,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
         case com.english.cet4.R.id.word_detail_button_gohaed:
             //从头开始学习
             Util.showAlertDialog(WordsDetailActivity.this,
-                    "从头开始学习", "当前学习进度将不会保存，确定这么做吗？", new IDialogOnClickListener() {
+                    "从头开始学习", "当前学习进度将不会保存，确定这么做吗？","", new IDialogOnClickListener() {
                         @Override
                         public void onClick() {
                             mIsGoHead = true;

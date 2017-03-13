@@ -24,6 +24,9 @@ public class PayManager {
     public static final String APP_ID = "b04f2b0f3f9fcd5c5acece6ac1f0ce9f";
     public static final int PAY_RESULT_MSG_SUCCESS = 1;
     public static final int PAY_RESULT_MSG_FAILED = 0;
+    public static final String PAY_DIALOG_TITLE = "购买发音";
+    public static final String PAY_DIALOG_CONTENT = "只需4.99元购买真人发音";
+    public static final String PAY_DIALOG_TIP = "(若购买失败，可能您关闭了app某些权限，请在设置中打开后重试)";
 
     private static PayManager mPayManager = null;
     private static Object sObject = new Object();
