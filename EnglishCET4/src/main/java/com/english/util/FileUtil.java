@@ -16,7 +16,7 @@ import java.io.InputStream;
  *
  */
 public class FileUtil {
-	private final static String DATABASEPATH = "/data/data/com.english.cet4/databases/";
+	private final static String DATABASEPATH = "/data/data/com.english.cet6/databases/";
 	private final static String DATABASENAME = "english.db";
 
 	 

@@ -34,7 +34,7 @@
     
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/logon"
+        android:icon="@mipmap/logo_cet6"
         android:label="@string/app_name"
         android:name="com.english.English">
         <activity

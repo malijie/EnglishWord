@@ -21,7 +21,7 @@ import com.wanpu.pay.PayResultListener;
 public class PayManager {
     private static final String TAG = PayManager.class.getSimpleName();
     //App ID
-    public static final String APP_ID = "b04f2b0f3f9fcd5c5acece6ac1f0ce9f";
+    public static final String APP_ID = "47aa924de2cd78b1b3b46322d57ab2fb";
     public static final int PAY_RESULT_MSG_SUCCESS = 1;
     public static final int PAY_RESULT_MSG_FAILED = 0;
     public static final String PAY_DIALOG_TITLE = "购买发音";
