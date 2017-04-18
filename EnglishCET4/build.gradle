@@ -10,13 +10,47 @@ android {
         targetSdkVersion 23
         versionCode 2
         versionName "2"
+        multiDexEnabled true
+        manifestPlaceholders=[APP_CHANNEL_VALUE: "app"]
     }
+
+    signingConfigs{
+        debug{}
+        release{
+            storeFile file('../keystore/english_key.jks')
+            storePassword 'malijie920'
+            keyAlias 'english'
+            keyPassword 'malijie920'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
+    productFlavors {
+        yingyongbao {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"yingyongbao" ]
+        }
+
+        qihu360 {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"360" ]
+        }
+
+        wandoujia {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"wandoujia" ]
+        }
+
+        xiaomi {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"xiaomi" ]
+        }
+
+    }
+
 }
 
 dependencies {

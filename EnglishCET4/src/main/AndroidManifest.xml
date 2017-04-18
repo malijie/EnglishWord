@@ -30,7 +30,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
    
     <meta-data android:name="APP_ID" android:value="b04f2b0f3f9fcd5c5acece6ac1f0ce9f"/>
-	<meta-data android:name="APP_PID" android:value="default"/>   
+    <meta-data android:name="APP_PID" android:value="${APP_CHANNEL_VALUE}"/>
     
     <application
         android:allowBackup="true"
