@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.ad.AdUtil;
+import com.english.ad.WapManager;
 import com.english.fragments.SearchFragment;
 import com.english.fragments.SettingFragment;
 import com.english.fragments.UnknowWordsFragment;
@@ -60,9 +61,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void initData() {
 		if(PermissionController.checkPermission(this)){
-			PayConnect.getInstance(AdUtil.APP_ID,AdUtil.APP_ID, this);
-			AdUtil.init(this);
+			WapManager.getInstance(this);
+			PayConnect.getInstance(this);
 		}
+		PayConnect.getInstance(this);
+//		WapManager.getInstance(this);
+//		PayConnect.getInstance(this);
 	}
 
 

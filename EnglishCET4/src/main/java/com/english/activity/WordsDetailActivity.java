@@ -365,6 +365,5 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
         super.onStop();
         mEnglishMediaPlayer.stopPlay();
         mIsGoHead = false;
-        PayConnect.getInstance(this).close();
     }
 }

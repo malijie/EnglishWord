@@ -17,7 +17,7 @@ public class AdUtil {
 	private static AppConnect mAppConnect = null;
 	
 	public static void init(Context context){
-		mAppConnect = AppConnect.getInstance(context);
+		mAppConnect = AppConnect.getInstance(AdUtil.APP_ID,AdUtil.APP_ID,context);
 		mAppConnect.initUninstallAd(context);
 		mAppConnect.setCrashReport(true);
 	}

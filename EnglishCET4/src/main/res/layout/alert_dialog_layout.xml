@@ -33,24 +33,14 @@
             android:text="确定要退出吗"
             android:layout_centerInParent="true"
             android:layout_marginLeft="5dip"
-            android:layout_marginTop="10dip"
+            android:layout_marginTop="30dip"
             android:textColor="@color/words_font_normal"
             android:textSize="17sp"/>
-        <TextView
-            android:id="@+id/dialog_text_tip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/dialog_text_content"
-            android:layout_marginLeft="5dip"
-            android:layout_marginTop="5dip"
-            android:layout_centerInParent="true"
-            android:textColor="@color/words_font_normal"
-            android:textSize="14sp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dip"
             android:layout_below="@id/dialog_text_content"
-            android:layout_marginTop="45dip">
+            android:layout_marginTop="35dip">
             <Button
                 android:id="@+id/dialog_button_confirm"
                 android:layout_width="0dip"

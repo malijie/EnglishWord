@@ -29,9 +29,10 @@ public class PayManager {
 
     private static PayManager mPayManager = null;
     private static Object sObject = new Object();
+    private PayConnect mPayConnect = null;
 
     private PayManager(Context context) {
-        PayConnect.getInstance(APP_ID,AdUtil.APP_PID, context);
+        mPayConnect = PayConnect.getInstance(context);
     }
 
     public static PayManager getInstance(Context context){
@@ -49,7 +50,7 @@ public class PayManager {
 
         String device = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         Logger.d("MLJ","device=" + device);
-        PayConnect.getInstance(context).pay(context,
+        mPayConnect.pay(context,
                 System.currentTimeMillis() + "",
                 device,
                 (float) 4.99,

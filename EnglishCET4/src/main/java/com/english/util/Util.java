@@ -202,10 +202,8 @@ public class Util {
 		Button buttonCancel = (Button) v.findViewById(com.english.cet4.R.id.dialog_button_cancel);
 		TextView textTitle = (TextView) v.findViewById(com.english.cet4.R.id.dialog_text_title);
 		TextView textMsg = (TextView) v.findViewById(com.english.cet4.R.id.dialog_text_content);
-		TextView textTip = (TextView) v.findViewById(R.id.dialog_text_tip);
 
 		textTitle.setText(title);
-		textTip.setText(tip);
 		textMsg.setText(msg);
 
 		final AlertDialog dialog = builder.create();
