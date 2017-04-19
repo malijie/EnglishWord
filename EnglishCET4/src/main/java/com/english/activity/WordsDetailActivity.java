@@ -193,7 +193,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 					mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
 					Util.showAlertDialog(WordsDetailActivity.this,
-							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,PayManager.PAY_DIALOG_TIP, new IDialogOnClickListener() {
+							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
 								@Override
 								public void onClick() {
 									mPayManager.pay(WordsDetailActivity.this);

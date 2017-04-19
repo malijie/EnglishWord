@@ -97,7 +97,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 					mPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
 					Util.showAlertDialog(this,
-							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,PayManager.PAY_DIALOG_TIP, new IDialogOnClickListener() {
+							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
 								@Override
 								public void onClick() {
 									PayManager.getInstance(UnknownWordDetailActivity.this).pay(UnknownWordDetailActivity.this);

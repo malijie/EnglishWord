@@ -94,7 +94,7 @@ public class SearchDetailActivity extends Activity implements OnClickListener {
 				mPlayer.playTheWordTune(wordInfo.getWord());
 			}else{
 				Util.showAlertDialog(this,
-						PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,PayManager.PAY_DIALOG_TIP, new IDialogOnClickListener() {
+						PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
 							@Override
 							public void onClick() {
 								PayManager.getInstance(SearchDetailActivity.this).pay(SearchDetailActivity.this);
