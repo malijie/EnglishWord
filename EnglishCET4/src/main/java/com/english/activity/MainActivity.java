@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.english.ad.AdUtil;
 import com.english.ad.WapManager;
 import com.english.fragments.SearchFragment;
 import com.english.fragments.SettingFragment;
@@ -64,9 +63,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			WapManager.getInstance(this);
 			PayConnect.getInstance(this);
 		}
-		PayConnect.getInstance(this);
-//		WapManager.getInstance(this);
-//		PayConnect.getInstance(this);
 	}
 
 

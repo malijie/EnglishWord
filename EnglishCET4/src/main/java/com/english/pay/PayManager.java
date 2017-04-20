@@ -1,15 +1,12 @@
 package com.english.pay;
 
 import android.content.Context;
-import android.content.res.ObbInfo;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.english.English;
-import com.english.ad.AdUtil;
 import com.english.util.Logger;
 import com.english.util.SharedPreferenceUtil;
 import com.wanpu.pay.PayConnect;
@@ -32,7 +29,7 @@ public class PayManager {
     private PayConnect mPayConnect = null;
 
     private PayManager(Context context) {
-        mPayConnect = PayConnect.getInstance(context);
+        mPayConnect = PayConnect.getInstance("b04f2b0f3f9fcd5c5acece6ac1f0ce9f","qq",context);
     }
 
     public static PayManager getInstance(Context context){

@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.english.activity.HelpAndTipActivity;
-import com.english.ad.AdUtil;
-import com.english.pay.PayManager;
+import com.english.ad.WapManager;
 import com.english.widget.FontDialog;
-import com.wanpu.pay.PayConnect;
 
 
 public class SettingFragment extends Fragment implements OnClickListener {
@@ -70,11 +68,11 @@ public class SettingFragment extends Fragment implements OnClickListener {
 			break;
 
 		case com.english.cet4.R.id.setting_button_update:
-			AdUtil.checkUpdate(getActivity());
+			WapManager.getInstance(getActivity()).updateApp(getActivity());
 			break;
 		
 		case com.english.cet4.R.id.setting_button_feedback:
-			AdUtil.showFeedback(getActivity());
+			WapManager.getInstance(getActivity()).feedbackApp(getActivity());
 			break;
 		}  
 	}

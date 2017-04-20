@@ -16,17 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.English;
-import com.english.ad.AdUtil;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
 import com.english.pay.PayManager;
-import com.english.util.Logger;
 import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
-import com.wanpu.pay.PayConnect;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
