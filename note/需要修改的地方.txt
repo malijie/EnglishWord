@@ -1,0 +1,7 @@
+1. app图标
+2. 欢迎界面图
+3. 标题
+4. APPID
+5. 包名（Gradle + AndroidMainfest）
+6. R文件
+7. 数据库路径
