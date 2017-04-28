@@ -1,1 +1,1 @@
-include ':EnglishCET4'
+include ':EnglishCET4', ':EnglishCET6'
