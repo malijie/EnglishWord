@@ -38,7 +38,7 @@ public class FileUtil {
     	FileOutputStream os = null;
    
     	if(!dbFile.exists()){//
-    	Toast.makeText(context, "首次加载，数据初始化中...", Toast.LENGTH_LONG).show();
+    	Toast.makeText(context, "首次加载,数据初始化中...", Toast.LENGTH_LONG).show();
     		dbFile.getParentFile().mkdirs();
 	    	try{
 	    		os = new FileOutputStream(dbFileName);//
