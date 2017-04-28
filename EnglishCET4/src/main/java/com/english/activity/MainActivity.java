@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.ad.WapManager;
+import com.english.cet4.R;
 import com.english.fragments.SearchFragment;
 import com.english.fragments.SettingFragment;
 import com.english.fragments.UnknowWordsFragment;
@@ -51,7 +52,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(com.english.cet4.R.layout.activity_main);
+		setContentView(R.layout.activity_main);
 
 		initData();
 		initView();
@@ -67,20 +68,20 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
 	private void initView() {
-		wordsLayout = (RelativeLayout) super.findViewById(com.english.cet4.R.id.main_layout_relativelayout_words);
-		settingLayout = (RelativeLayout) super.findViewById(com.english.cet4.R.id.main_layout_relativelayout_setting);
-		searchLayout = (RelativeLayout) super.findViewById(com.english.cet4.R.id.main_layout_relativelayout_search);
-		unknownLayout = (RelativeLayout) super.findViewById(com.english.cet4.R.id.main_layout_relativelayout_unknown);
+		wordsLayout = (RelativeLayout) super.findViewById(R.id.main_layout_relativelayout_words);
+		settingLayout = (RelativeLayout) super.findViewById(R.id.main_layout_relativelayout_setting);
+		searchLayout = (RelativeLayout) super.findViewById(R.id.main_layout_relativelayout_search);
+		unknownLayout = (RelativeLayout) super.findViewById(R.id.main_layout_relativelayout_unknown);
 		
-		searchImage = (ImageView) super.findViewById(com.english.cet4.R.id.main_layout_button_search);
-		unknownImage = (ImageView) super.findViewById(com.english.cet4.R.id.main_layout_button_unknown);
-		wordsImage = (ImageView) super.findViewById(com.english.cet4.R.id.main_layout_button_words);
-		setImage = (ImageView) super.findViewById(com.english.cet4.R.id.main_layout_button_setting);
+		searchImage = (ImageView) super.findViewById(R.id.main_layout_button_search);
+		unknownImage = (ImageView) super.findViewById(R.id.main_layout_button_unknown);
+		wordsImage = (ImageView) super.findViewById(R.id.main_layout_button_words);
+		setImage = (ImageView) super.findViewById(R.id.main_layout_button_setting);
 		
-		wordText = (TextView) super.findViewById(com.english.cet4.R.id.main_layout_textview_words);
-		searchText = (TextView) super.findViewById(com.english.cet4.R.id.main_layout_textview_search);
-		unknownText = (TextView) super.findViewById(com.english.cet4.R.id.main_layout_textview_unknown);
-		setText = (TextView) super.findViewById(com.english.cet4.R.id.main_layout_textview_setting);
+		wordText = (TextView) super.findViewById(R.id.main_layout_textview_words);
+		searchText = (TextView) super.findViewById(R.id.main_layout_textview_search);
+		unknownText = (TextView) super.findViewById(R.id.main_layout_textview_unknown);
+		setText = (TextView) super.findViewById(R.id.main_layout_textview_setting);
 		
 		wordsLayout.setOnClickListener(this);
 		searchLayout.setOnClickListener(this);
@@ -103,41 +104,41 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		switch(index){
 		case 0:
-			wordsImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_words_selected);
-			wordText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_selected));
+			wordsImage.setImageResource(R.mipmap.bottom_button_words_selected);
+			wordText.setTextColor(getResources().getColor(R.color.bottom_textview_selected));
 			if(wordsFragment == null){ 
 				wordsFragment = new WordsFragment();
-				transaction.add(com.english.cet4.R.id.main_layout_frame_content, wordsFragment);
+				transaction.add(R.id.main_layout_frame_content, wordsFragment);
 			}else{
 				transaction.show(wordsFragment);
 			}
 			break;
 		case 1:
-			searchImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_search_selected);
-			searchText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_selected));
+			searchImage.setImageResource(R.mipmap.bottom_button_search_selected);
+			searchText.setTextColor(getResources().getColor(R.color.bottom_textview_selected));
 			if(searchFragment == null){
 				searchFragment = new SearchFragment();
-				transaction.add(com.english.cet4.R.id.main_layout_frame_content, searchFragment);
+				transaction.add(R.id.main_layout_frame_content, searchFragment);
 			}else{
 				transaction.show(searchFragment);
 			}
 			break;
 		case 2:
-			unknownImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_newword_selected);
-			unknownText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_selected));
+			unknownImage.setImageResource(R.mipmap.bottom_button_newword_selected);
+			unknownText.setTextColor(getResources().getColor(R.color.bottom_textview_selected));
 			if(unknownWordFragment == null){
 				unknownWordFragment = new UnknowWordsFragment();
-				transaction.add(com.english.cet4.R.id.main_layout_frame_content, unknownWordFragment);
+				transaction.add(R.id.main_layout_frame_content, unknownWordFragment);
 			}else{
 				transaction.show(unknownWordFragment);
 			}
 			break;
 		case 3:
-			setImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_setting_selected);
-			setText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_selected));
+			setImage.setImageResource(R.mipmap.bottom_button_setting_selected);
+			setText.setTextColor(getResources().getColor(R.color.bottom_textview_selected));
 			if(settingFragment == null){
 				settingFragment = new SettingFragment();
-				transaction.add(com.english.cet4.R.id.main_layout_frame_content, settingFragment);
+				transaction.add(R.id.main_layout_frame_content, settingFragment);
 			}else{
 				transaction.show(settingFragment);
 			}
@@ -173,31 +174,31 @@ public class MainActivity extends Activity implements OnClickListener {
 	 * ���ѡ��״̬
 	 */
 	private void clearSelection() {
-		unknownImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_newword_normal);
-		searchImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_search_normal);
-		setImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_setting_normal);
-		wordsImage.setImageResource(com.english.cet4.R.mipmap.bottom_button_words_normal);
-		wordText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_normal));
-		searchText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_normal));
-		unknownText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_normal));
-		setText.setTextColor(getResources().getColor(com.english.cet4.R.color.bottom_textview_normal));
+		unknownImage.setImageResource(R.mipmap.bottom_button_newword_normal);
+		searchImage.setImageResource(R.mipmap.bottom_button_search_normal);
+		setImage.setImageResource(R.mipmap.bottom_button_setting_normal);
+		wordsImage.setImageResource(R.mipmap.bottom_button_words_normal);
+		wordText.setTextColor(getResources().getColor(R.color.bottom_textview_normal));
+		searchText.setTextColor(getResources().getColor(R.color.bottom_textview_normal));
+		unknownText.setTextColor(getResources().getColor(R.color.bottom_textview_normal));
+		setText.setTextColor(getResources().getColor(R.color.bottom_textview_normal));
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.main_layout_relativelayout_words:
+		case R.id.main_layout_relativelayout_words:
 			setTabSelection(Profile.BOTTOM_SELECT_WORD);
 			break;
 		
-		case com.english.cet4.R.id.main_layout_relativelayout_search:
+		case R.id.main_layout_relativelayout_search:
 			setTabSelection(Profile.BOTTOM_SELECT_SEARCH);
 			break;
 			
-		case com.english.cet4.R.id.main_layout_relativelayout_unknown:
+		case R.id.main_layout_relativelayout_unknown:
 			setTabSelection(Profile.BOTTOM_SELECT_UNKNOWNWORD);
 			break;
-		case com.english.cet4.R.id.main_layout_relativelayout_setting:
+		case R.id.main_layout_relativelayout_setting:
 			setTabSelection(Profile.BOTTOM_SELECT_SETTING);
 			break;
 		}  

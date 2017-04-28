@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
@@ -42,7 +43,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.unknown_words_detail_layout);
+		super.setContentView(R.layout.unknown_words_detail_layout);
 		
 		initData();
 		initView();
@@ -60,13 +61,13 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 	}
  
 	private void initView() {
-		textWord = (TextView) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_text_word);
-		textExample = (TextView) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_text_example);
-		textSymbol = (TextView) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_text_symbol);
-		textContent = (TextView) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_text_content);
-		butDelete = (Button) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_button_delete);
-		adLayout = (LinearLayout) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_layout_ad);
-        buttonVoice = (ImageButton) super.findViewById(com.english.cet4.R.id.unkonwn_words_detail_button_volume);
+		textWord = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_word);
+		textExample = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_example);
+		textSymbol = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_symbol);
+		textContent = (TextView) super.findViewById(R.id.unkonwn_words_detail_text_content);
+		butDelete = (Button) super.findViewById(R.id.unkonwn_words_detail_button_delete);
+		adLayout = (LinearLayout) super.findViewById(R.id.unkonwn_words_detail_layout_ad);
+        buttonVoice = (ImageButton) super.findViewById(R.id.unkonwn_words_detail_button_volume);
         buttonVoice.setOnClickListener(this);
 		butDelete.setOnClickListener(this);
 	}
@@ -81,7 +82,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.unkonwn_words_detail_button_delete:
+		case R.id.unkonwn_words_detail_button_delete:
 			if(!isDeleted){
 				eOperate.updateUnknownWordStatusById(mWordInfo.getId());
 				Toast.makeText(UnknownWordDetailActivity.this,"已删除", Toast.LENGTH_SHORT).show();
@@ -92,7 +93,7 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 				UnknownWordDetailActivity.this.finish();
 			}
             break;
-            case com.english.cet4.R.id.unkonwn_words_detail_button_volume:
+            case R.id.unkonwn_words_detail_button_volume:
 				if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
 					mPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{

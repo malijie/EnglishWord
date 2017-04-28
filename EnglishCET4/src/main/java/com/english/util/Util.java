@@ -193,15 +193,15 @@ public class Util {
 	 * @param listener ���ȷ���¼�
 	 */
 	public static void showAlertDialog(Context context, String title, String msg,String tip, final IDialogOnClickListener listener){
-		AlertDialog.Builder builder = new AlertDialog.Builder(context, com.english.cet4.R.style.Base_Theme_AppCompat_Dialog_Alert);
+		AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Base_Theme_AppCompat_Dialog_Alert);
 
-		View v = Util.getView(com.english.cet4.R.layout.alert_dialog_layout);
+		View v = Util.getView(R.layout.alert_dialog_layout);
 		builder.setView(v);
 
-		Button buttonConfirm = (Button) v.findViewById(com.english.cet4.R.id.dialog_button_confirm);
-		Button buttonCancel = (Button) v.findViewById(com.english.cet4.R.id.dialog_button_cancel);
-		TextView textTitle = (TextView) v.findViewById(com.english.cet4.R.id.dialog_text_title);
-		TextView textMsg = (TextView) v.findViewById(com.english.cet4.R.id.dialog_text_content);
+		Button buttonConfirm = (Button) v.findViewById(R.id.dialog_button_confirm);
+		Button buttonCancel = (Button) v.findViewById(R.id.dialog_button_cancel);
+		TextView textTitle = (TextView) v.findViewById(R.id.dialog_text_title);
+		TextView textMsg = (TextView) v.findViewById(R.id.dialog_text_content);
 
 		textTitle.setText(title);
 		textMsg.setText(msg);

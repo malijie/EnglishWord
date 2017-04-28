@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.english.cet4.R;
 import com.english.inter.IDialogClickListener;
 
 /**
@@ -31,11 +32,11 @@ public class Utils {
      * @param msg
      */
     public static void showDialog(Context context, String title, String msg, final IDialogClickListener listener){
-        View v = getView(context, com.english.cet4.R.layout.dialog_layout);
-        TextView textTitle = (TextView)v.findViewById(com.english.cet4.R.id.dialog_text_title);
-        TextView textContent = (TextView)v.findViewById(com.english.cet4.R.id.dialog_text_content);
-        Button buttonConfirm = (Button)v.findViewById(com.english.cet4.R.id.dialog_button_confirm);
-        Button buttonCancel = (Button)v.findViewById(com.english.cet4.R.id.dialog_button_cancel);
+        View v = getView(context, R.layout.dialog_layout);
+        TextView textTitle = (TextView)v.findViewById(R.id.dialog_text_title);
+        TextView textContent = (TextView)v.findViewById(R.id.dialog_text_content);
+        Button buttonConfirm = (Button)v.findViewById(R.id.dialog_button_confirm);
+        Button buttonCancel = (Button)v.findViewById(R.id.dialog_button_cancel);
         textTitle.setText(title);
         textContent.setText(msg);
 

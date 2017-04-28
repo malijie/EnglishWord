@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.english.activity.WordsDetailActivity;
 import com.english.adapter.WordLessonAdapter;
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.model.WordInfo;
@@ -44,7 +45,7 @@ public class WordsFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		viewWords = inflater.inflate(com.english.cet4.R.layout.words_layout, container, false);
+		viewWords = inflater.inflate(R.layout.words_layout, container, false);
 		 
 		initView();
 		initData(viewWords.getContext());
@@ -63,7 +64,7 @@ public class WordsFragment extends Fragment {
 	}
 
 	private void initView() {
-		wordsList = (ListView) viewWords.findViewById(com.english.cet4.R.id.listview_words);
+		wordsList = (ListView) viewWords.findViewById(R.id.listview_words);
 		wordsList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

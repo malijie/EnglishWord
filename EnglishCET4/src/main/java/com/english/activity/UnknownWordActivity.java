@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.english.adapter.UnknownWordsAdapter;
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.model.WordInfo;
@@ -28,7 +29,7 @@ public class UnknownWordActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.unknown_words_layout);
+		super.setContentView(R.layout.unknown_words_layout);
 		
 		initData();
 		initView();
@@ -36,7 +37,7 @@ public class UnknownWordActivity extends Activity {
 
 
 	private void initView() {
-		unknownListView = (ListView) super.findViewById(com.english.cet4.R.id.unkonwn_words_listview);
+		unknownListView = (ListView) super.findViewById(R.id.unkonwn_words_listview);
 		UnknownWordsAdapter uAdapter = new UnknownWordsAdapter(this, uWordsList);
 		unknownListView.setAdapter(uAdapter);
 		

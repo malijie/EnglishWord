@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.english.activity.UnknownWordDetailActivity;
 import com.english.adapter.UnknownWordsAdapter;
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.model.WordInfo;
@@ -33,15 +34,15 @@ public class UnknowWordsFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		viewUnknownWord = inflater.inflate(com.english.cet4.R.layout.unknown_words_layout, container,false);
+		viewUnknownWord = inflater.inflate(R.layout.unknown_words_layout, container,false);
 		initData();
 		initView();
 		return viewUnknownWord;
 	}
 	
 	private void initView() {
-		layoutAd1 = (LinearLayout) viewUnknownWord.findViewById(com.english.cet4.R.id.unknown_layout_ad1);
-		unknownListView = (ListView) viewUnknownWord.findViewById(com.english.cet4.R.id.unkonwn_words_listview);
+		layoutAd1 = (LinearLayout) viewUnknownWord.findViewById(R.id.unknown_layout_ad1);
+		unknownListView = (ListView) viewUnknownWord.findViewById(R.id.unkonwn_words_listview);
 		UnknownWordsAdapter uAdapter = new UnknownWordsAdapter(getActivity(), uWordsList);
 		unknownListView.setAdapter(uAdapter);
 		

@@ -16,14 +16,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.English;
+import com.english.ad.WapManager;
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
 import com.english.pay.PayManager;
+import com.english.util.PermissionController;
 import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
+import com.wanpu.pay.PayConnect;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -69,7 +73,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.words_detail_layout);
+		super.setContentView(R.layout.words_detail_layout);
 
 		initData();
 		initDatabase();
@@ -113,28 +117,28 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 	}
 	
 	private void initView() {
-		txtWord = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_word);
-		txtSymbols = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_symbol);
-		txtContent = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_content);
-		txtExample1 = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_example1);
-		txtExample2 = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_example2);
-		txtExample = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_text_example);
-		txtProgress = (TextView) super.findViewById(com.english.cet4.R.id.word_detail_text_progress);
+		txtWord = (TextView) super.findViewById(R.id.word_detail_word);
+		txtSymbols = (TextView) super.findViewById(R.id.word_detail_symbol);
+		txtContent = (TextView) super.findViewById(R.id.word_detail_content);
+		txtExample1 = (TextView) super.findViewById(R.id.word_detail_example1);
+		txtExample2 = (TextView) super.findViewById(R.id.word_detail_example2);
+		txtExample = (TextView) super.findViewById(R.id.word_detail_text_example);
+		txtProgress = (TextView) super.findViewById(R.id.word_detail_text_progress);
 		
-		layoutContent = (LinearLayout) super.findViewById(com.english.cet4.R.id.word_detail_content_layout);
-		layoutExample1 = (RelativeLayout) super.findViewById(com.english.cet4.R.id.word_detail_example1_layout);
-		layoutExample2 = (RelativeLayout) super.findViewById(com.english.cet4.R.id.word_detail_example2_layout);
-		layoutAd = (LinearLayout) super.findViewById(com.english.cet4.R.id.word_detail_ad_layout);
-		layoutRightOrWrong = (LinearLayout) super.findViewById(com.english.cet4.R.id.word_detail_layout_rightorwrong);
-		layoutKnownOrNot = (LinearLayout) super.findViewById(com.english.cet4.R.id.word_detail_layout_knownornot);
+		layoutContent = (LinearLayout) super.findViewById(R.id.word_detail_content_layout);
+		layoutExample1 = (RelativeLayout) super.findViewById(R.id.word_detail_example1_layout);
+		layoutExample2 = (RelativeLayout) super.findViewById(R.id.word_detail_example2_layout);
+		layoutAd = (LinearLayout) super.findViewById(R.id.word_detail_ad_layout);
+		layoutRightOrWrong = (LinearLayout) super.findViewById(R.id.word_detail_layout_rightorwrong);
+		layoutKnownOrNot = (LinearLayout) super.findViewById(R.id.word_detail_layout_knownornot);
 		
-		butNext = (Button) super.findViewById(com.english.cet4.R.id.word_detail_button_next);
-		butKnown = (Button) super.findViewById(com.english.cet4.R.id.word_detail_button_known);
-		butNotKnown = (Button) super.findViewById(com.english.cet4.R.id.word_detail_button_notknown);
-		butRight = (Button) super.findViewById(com.english.cet4.R.id.word_detail_button_right);
-		butWrong = (Button) super.findViewById(com.english.cet4.R.id.word_detail_button_wrong);
-		butSound = (ImageButton) super.findViewById(com.english.cet4.R.id.word_detail_button_volume);
-        butGoHead = (ImageButton) super.findViewById(com.english.cet4.R.id.word_detail_button_gohaed);
+		butNext = (Button) super.findViewById(R.id.word_detail_button_next);
+		butKnown = (Button) super.findViewById(R.id.word_detail_button_known);
+		butNotKnown = (Button) super.findViewById(R.id.word_detail_button_notknown);
+		butRight = (Button) super.findViewById(R.id.word_detail_button_right);
+		butWrong = (Button) super.findViewById(R.id.word_detail_button_wrong);
+		butSound = (ImageButton) super.findViewById(R.id.word_detail_button_volume);
+        butGoHead = (ImageButton) super.findViewById(R.id.word_detail_button_gohaed);
 
 
 		butNext.setOnClickListener(this);
@@ -156,50 +160,55 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.word_detail_button_next:
+		case R.id.word_detail_button_next:
 			showWordsKnownOrNotUI();
 			showNextWord();
 			break;
-		case com.english.cet4.R.id.word_detail_example1:
+		case R.id.word_detail_example1:
 			showExampleDetail();
 			break;
-		case com.english.cet4.R.id.word_detail_example2:
+		case R.id.word_detail_example2:
 			showExampleDetail();
 			break;
-		case com.english.cet4.R.id.word_detail_button_known:
+		case R.id.word_detail_button_known:
 			showRightOrWrongUI();
 			break;
-		case com.english.cet4.R.id.word_detail_button_notknown:
+		case R.id.word_detail_button_notknown:
 			eOperate.updateWordIsKnownById(false, mWordInfo.getId());
 			showNextWordUI();
 			setWordData(progress);
 			break;
-		case com.english.cet4.R.id.word_detail_button_right:
+		case R.id.word_detail_button_right:
 			eOperate.updateWordIsKnownById(true, mWordInfo.getId());
 			showWordsKnownOrNotUI();
 			showNextWord();
 			break;
-		case com.english.cet4.R.id.word_detail_button_wrong:
+		case R.id.word_detail_button_wrong:
 			eOperate.updateWordIsKnownById(false, mWordInfo.getId());
 			showWordsKnownOrNotUI(); 
 			showNextWord(); 
 			break;
-		case com.english.cet4.R.id.word_detail_button_volume:
+		case R.id.word_detail_button_volume:
 				//播放单词音频
 				if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
 					mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
-					Util.showAlertDialog(WordsDetailActivity.this,
-							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
-								@Override
-								public void onClick() {
-									mPayManager.pay(WordsDetailActivity.this);
-								}
-							});
+					if(PermissionController.checkPermission(this)){
+						WapManager.getInstance(this);
+						PayConnect.getInstance(this);
+						Util.showAlertDialog(WordsDetailActivity.this,
+								PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
+									@Override
+									public void onClick() {
+										mPayManager.pay(WordsDetailActivity.this);
+									}
+								});
+
+					}
 
 				}
 			break;
-        case com.english.cet4.R.id.word_detail_button_gohaed:
+        case R.id.word_detail_button_gohaed:
             //从头开始学习
             Util.showAlertDialog(WordsDetailActivity.this,
                     "从头开始学习", "当前学习进度将不会保存，确定这么做吗？","", new IDialogOnClickListener() {
@@ -216,7 +225,7 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
                     });
 
             break;
-            case com.english.cet4.R.id.word_detail_add:
+            case R.id.word_detail_add:
 			
 			break;
 			

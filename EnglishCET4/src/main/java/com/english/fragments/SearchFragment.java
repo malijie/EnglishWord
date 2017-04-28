@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.english.activity.SearchDetailActivity;
 import com.english.adapter.SearchAdapter;
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.model.WordInfo;
@@ -41,7 +42,7 @@ public class SearchFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		  
-		viewSearch = inflater.inflate(com.english.cet4.R.layout.search_layout, container, false);
+		viewSearch = inflater.inflate(R.layout.search_layout, container, false);
 		initView();
 		initDatabase();
 		
@@ -60,11 +61,11 @@ public class SearchFragment extends Fragment {
 	 
 	
 	private void initView() {
-		searchListView = (ListView) viewSearch.findViewById(com.english.cet4.R.id.search_layout_listview_result);
-		buttonSearch = (ImageButton) viewSearch.findViewById(com.english.cet4.R.id.search_layout_button_search);
-		editInput = (EditText) viewSearch.findViewById(com.english.cet4.R.id.search_layout_edittext_input);
+		searchListView = (ListView) viewSearch.findViewById(R.id.search_layout_listview_result);
+		buttonSearch = (ImageButton) viewSearch.findViewById(R.id.search_layout_button_search);
+		editInput = (EditText) viewSearch.findViewById(R.id.search_layout_edittext_input);
 		buttonSearch.setOnClickListener(new OnClickListenerImpl()); 
-		adLayout = (LinearLayout) viewSearch.findViewById(com.english.cet4.R.id.search_layout_layout_ad);
+		adLayout = (LinearLayout) viewSearch.findViewById(R.id.search_layout_layout_ad);
 		
 		wordInfos = new ArrayList<WordInfo>();
 		searchListView.setOnItemClickListener(new OnItemClickListenerImpl());
@@ -76,7 +77,7 @@ public class SearchFragment extends Fragment {
 		@Override
 		public void onClick(View v) {
 			switch(v.getId()){
-			case com.english.cet4.R.id.search_layout_button_search:
+			case R.id.search_layout_button_search:
 				searchListView.setVisibility(View.VISIBLE);
 				keyWord = editInput.getText().toString().trim();
 

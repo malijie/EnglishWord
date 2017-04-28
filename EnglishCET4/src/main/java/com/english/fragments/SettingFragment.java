@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 
 import com.english.activity.HelpAndTipActivity;
 import com.english.ad.WapManager;
+import com.english.cet4.R;
 import com.english.widget.FontDialog;
 
 
@@ -29,17 +30,17 @@ public class SettingFragment extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		viewSetting = inflater.inflate(com.english.cet4.R.layout.setting_layout, null, false);
+		viewSetting = inflater.inflate(R.layout.setting_layout, null, false);
 		initView();
 		return viewSetting;
 	}  
 	private void initView() {
-		buttonSetWord = (Button) viewSetting.findViewById(com.english.cet4.R.id.setting_button_font_word);
-		buttonMoreWord = (ImageButton) viewSetting.findViewById(com.english.cet4.R.id.setting_button_more_word);
-		buttonSetHelp = (Button) viewSetting.findViewById(com.english.cet4.R.id.setting_button_help);
-		buttonMoreHelp = (ImageButton) viewSetting.findViewById(com.english.cet4.R.id.setting_button_more_help);
-		buttonUpdate = (Button) viewSetting.findViewById(com.english.cet4.R.id.setting_button_update);
-		buttonFeedback = (Button) viewSetting.findViewById(com.english.cet4.R.id.setting_button_feedback);
+		buttonSetWord = (Button) viewSetting.findViewById(R.id.setting_button_font_word);
+		buttonMoreWord = (ImageButton) viewSetting.findViewById(R.id.setting_button_more_word);
+		buttonSetHelp = (Button) viewSetting.findViewById(R.id.setting_button_help);
+		buttonMoreHelp = (ImageButton) viewSetting.findViewById(R.id.setting_button_more_help);
+		buttonUpdate = (Button) viewSetting.findViewById(R.id.setting_button_update);
+		buttonFeedback = (Button) viewSetting.findViewById(R.id.setting_button_feedback);
 		
 		buttonSetWord.setOnClickListener(this);
 		buttonMoreWord.setOnClickListener(this);
@@ -53,25 +54,25 @@ public class SettingFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.setting_button_font_word:
+		case R.id.setting_button_font_word:
 			setWordFont();
 			break;
-		case com.english.cet4.R.id.setting_button_more_word:
+		case R.id.setting_button_more_word:
 			setWordFont();
 			break;
-		case com.english.cet4.R.id.setting_button_help:
+		case R.id.setting_button_help:
 			showHelpTip();
 			break;
 		  
-		case com.english.cet4.R.id.setting_button_more_help:
+		case R.id.setting_button_more_help:
 			showHelpTip();
 			break;
 
-		case com.english.cet4.R.id.setting_button_update:
+		case R.id.setting_button_update:
 			WapManager.getInstance(getActivity()).updateApp(getActivity());
 			break;
 		
-		case com.english.cet4.R.id.setting_button_feedback:
+		case R.id.setting_button_feedback:
 			WapManager.getInstance(getActivity()).feedbackApp(getActivity());
 			break;
 		}  

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">英语六级大纲词汇</string>
+    <string name="app_name">英语四级大纲词汇</string>
     <string name="hello_world">Hello world!</string>
 	<string name="bottom_button_words">单词</string>
 	<string name="bottom_button_search">搜词</string>

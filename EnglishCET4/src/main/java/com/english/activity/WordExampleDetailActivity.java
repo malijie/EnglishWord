@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 
@@ -32,7 +33,7 @@ public class WordExampleDetailActivity extends Activity implements OnClickListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.words_example_layout);
+		super.setContentView(R.layout.words_example_layout);
 		
 		initData();  
 		initDatabase();
@@ -47,11 +48,11 @@ public class WordExampleDetailActivity extends Activity implements OnClickListen
 
 
 	private void initView() {
-		txtWord = (TextView) super.findViewById(com.english.cet4.R.id.word_example_word);
-		txtSymbols = (TextView) super.findViewById(com.english.cet4.R.id.word_example_symbol);
-		txtContent = (TextView) super.findViewById(com.english.cet4.R.id.word_example_content);
-		txtExample = (TextView) super.findViewById(com.english.cet4.R.id.word_example_detail);
-		butDelete = (Button) super.findViewById(com.english.cet4.R.id.word_example_button_delete);
+		txtWord = (TextView) super.findViewById(R.id.word_example_word);
+		txtSymbols = (TextView) super.findViewById(R.id.word_example_symbol);
+		txtContent = (TextView) super.findViewById(R.id.word_example_content);
+		txtExample = (TextView) super.findViewById(R.id.word_example_detail);
+		butDelete = (Button) super.findViewById(R.id.word_example_button_delete);
 		
 		txtSymbols.setText(Html.fromHtml(sSymbols));
 		txtWord.setText(Html.fromHtml(sWord));
@@ -77,7 +78,7 @@ public class WordExampleDetailActivity extends Activity implements OnClickListen
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.word_example_button_delete:
+		case R.id.word_example_button_delete:
 			eOperate.updateWordIsKnownById(false, id);
 			Toast.makeText(WordExampleDetailActivity.this, "设置成功！", Toast.LENGTH_SHORT).show();
 			break;

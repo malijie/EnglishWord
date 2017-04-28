@@ -11,6 +11,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 
 import com.english.English;
+import com.english.cet4.R;
 import com.english.config.Config;
 import com.english.config.Const;
 import com.english.util.FileUtil;
@@ -28,11 +29,11 @@ public class WelcomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
     	this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//ȫ����ʾ
-    	super.setContentView(com.english.cet4.R.layout.welcome_layout);
+    	super.setContentView(R.layout.welcome_layout);
     	
 //    	AdUtil.init(this);
     	
-    	imgBackgroud = (ImageView) super.findViewById(com.english.cet4.R.id.welcome_image);
+    	imgBackgroud = (ImageView) super.findViewById(R.id.welcome_image);
     	AlphaAnimation alpha = new AlphaAnimation(0.1f, 1.0f);
     	alpha.setDuration(2000);
     	imgBackgroud.setAnimation(alpha);

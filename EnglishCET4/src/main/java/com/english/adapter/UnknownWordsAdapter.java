@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.english.cet4.R;
 import com.english.model.WordInfo;
 
 import java.util.List;
@@ -43,10 +44,10 @@ public class UnknownWordsAdapter extends BaseAdapter {
 		if(convertView == null){
 			holder = new ViewHolder();
 			inflater = LayoutInflater.from(mContext);
-			convertView = inflater.inflate(com.english.cet4.R.layout.unknown_words_list_item, null);
-			holder.textWord = (TextView) convertView.findViewById(com.english.cet4.R.id.unkonwn_words_item_text_word);
-			holder.textSymbol = (TextView) convertView.findViewById(com.english.cet4.R.id.unkonwn_words_item_text_symbol);
-			holder.textContent = (TextView) convertView.findViewById(com.english.cet4.R.id.unkonwn_words_item_text_content);
+			convertView = inflater.inflate(R.layout.unknown_words_list_item, null);
+			holder.textWord = (TextView) convertView.findViewById(R.id.unkonwn_words_item_text_word);
+			holder.textSymbol = (TextView) convertView.findViewById(R.id.unkonwn_words_item_text_symbol);
+			holder.textContent = (TextView) convertView.findViewById(R.id.unkonwn_words_item_text_content);
 			convertView.setTag(holder);
 		}else{
 			holder = (ViewHolder) convertView.getTag();

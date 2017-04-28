@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.english.cet4.R;
+
 import java.util.List;
 import java.util.Map;
 
@@ -50,11 +52,11 @@ public class WordLessonAdapter extends BaseAdapter {
 		if(convertView == null){  
 			holder = new ViewHolder(); 
 			LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-			convertView = layoutInflater.inflate(com.english.cet4.R.layout.words_list_item, null);
-			holder.textLesson = (TextView) convertView.findViewById(com.english.cet4.R.id.list_item_text_lesson);
-			holder.textAccuracy = (TextView) convertView.findViewById(com.english.cet4.R.id.list_item_text_accuracy);
-			holder.textDate = (TextView) convertView.findViewById(com.english.cet4.R.id.list_item_text_date);
-			holder.textAbastract = (TextView) convertView.findViewById(com.english.cet4.R.id.list_item_text_abstract);
+			convertView = layoutInflater.inflate(R.layout.words_list_item, null);
+			holder.textLesson = (TextView) convertView.findViewById(R.id.list_item_text_lesson);
+			holder.textAccuracy = (TextView) convertView.findViewById(R.id.list_item_text_accuracy);
+			holder.textDate = (TextView) convertView.findViewById(R.id.list_item_text_date);
+			holder.textAbastract = (TextView) convertView.findViewById(R.id.list_item_text_abstract);
 			convertView.setTag(holder);
 			    
 		}else{

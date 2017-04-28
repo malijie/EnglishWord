@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.english.cet4.R;
 import com.english.util.SharedPreferenceUtil;
 
 public class FontDialog extends AlertDialog implements android.view.View.OnClickListener{
@@ -32,18 +33,18 @@ public class FontDialog extends AlertDialog implements android.view.View.OnClick
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.font_dialog);
+		super.setContentView(R.layout.font_dialog);
 		initView();
 	}
 	
 	
 	private void initView() {
-		buttonConfirm = (Button) super.findViewById(com.english.cet4.R.id.dialog_font_button_confirm);
-		buttonCancel = (Button) super.findViewById(com.english.cet4.R.id.dialog_font_button_cancel);
-		radioBig = (RadioButton) super.findViewById(com.english.cet4.R.id.dialog_font_radio_big);
-		radioMiddle = (RadioButton) super.findViewById(com.english.cet4.R.id.dialog_font_radio_middle);
-		radioSmall = (RadioButton) super.findViewById(com.english.cet4.R.id.dialog_font_radio_small);
-		textTitle = (TextView) super.findViewById(com.english.cet4.R.id.dialog_font_text_title);
+		buttonConfirm = (Button) super.findViewById(R.id.dialog_font_button_confirm);
+		buttonCancel = (Button) super.findViewById(R.id.dialog_font_button_cancel);
+		radioBig = (RadioButton) super.findViewById(R.id.dialog_font_radio_big);
+		radioMiddle = (RadioButton) super.findViewById(R.id.dialog_font_radio_middle);
+		radioSmall = (RadioButton) super.findViewById(R.id.dialog_font_radio_small);
+		textTitle = (TextView) super.findViewById(R.id.dialog_font_text_title);
 		buttonConfirm.setOnClickListener(this);
 		buttonCancel.setOnClickListener(this);
 		radioSmall.setOnClickListener(this);
@@ -64,8 +65,8 @@ public class FontDialog extends AlertDialog implements android.view.View.OnClick
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){ 
-		case com.english.cet4.R.id.dialog_font_button_confirm:
-			buttonConfirm.setBackgroundColor(mContext.getResources().getColor(com.english.cet4.R.color.textview_light_green));
+		case R.id.dialog_font_button_confirm:
+			buttonConfirm.setBackgroundColor(mContext.getResources().getColor(R.color.textview_light_green));
 			if(mMode == 0){	//����word���������С 
 				spUtil.setFontSize("word_size",fontSize);
 			}else if(mMode == 1){
@@ -76,11 +77,11 @@ public class FontDialog extends AlertDialog implements android.view.View.OnClick
 			Toast.makeText(mContext, "设置完毕", Toast.LENGTH_SHORT).show();
 			this.dismiss();
 			break;
-		case com.english.cet4.R.id.dialog_font_button_cancel:
-			buttonCancel.setBackgroundColor(mContext.getResources().getColor(com.english.cet4.R.color.textview_light_green));
+		case R.id.dialog_font_button_cancel:
+			buttonCancel.setBackgroundColor(mContext.getResources().getColor(R.color.textview_light_green));
 			this.dismiss();
 			break;
-		case com.english.cet4.R.id.dialog_font_radio_small:
+		case R.id.dialog_font_radio_small:
 			if(mMode == 0){	//����word���������С 
 				fontSize = 13;
 			}else if(mMode == 1){
@@ -90,7 +91,7 @@ public class FontDialog extends AlertDialog implements android.view.View.OnClick
 			}
 			
 			break;
-		case com.english.cet4.R.id.dialog_font_radio_middle:
+		case R.id.dialog_font_radio_middle:
 			if(mMode == 0){	//����word���������С 
 				fontSize = 20;
 			}else if(mMode == 1){
@@ -99,7 +100,7 @@ public class FontDialog extends AlertDialog implements android.view.View.OnClick
 				fontSize = 17;
 			}
 			break; 
-		case com.english.cet4.R.id.dialog_font_radio_big:
+		case R.id.dialog_font_radio_big:
 			if(mMode == 0){	//����word���������С 
 				fontSize = 24;
 			}else if(mMode == 1){

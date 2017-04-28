@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.english.cet4.R;
 import com.english.model.WordInfo;
 
 import java.util.List;
@@ -39,11 +40,11 @@ public class SearchAdapter extends BaseAdapter {
 		if(convertView == null){
 			viewHolder = new ViewHolder();
 			inflater = LayoutInflater.from(mContext);
-			convertView = inflater.inflate(com.english.cet4.R.layout.search_list_item, null);
-			viewHolder.textWord = (TextView) convertView.findViewById(com.english.cet4.R.id.search_item_text_word);
-			viewHolder.textSymbols = (TextView) convertView.findViewById(com.english.cet4.R.id.search_item_text_symbols);
-			viewHolder.textExample = (TextView) convertView.findViewById(com.english.cet4.R.id.search_item_text_example);
-			viewHolder.textContent = (TextView) convertView.findViewById(com.english.cet4.R.id.search_item_text_content);
+			convertView = inflater.inflate(R.layout.search_list_item, null);
+			viewHolder.textWord = (TextView) convertView.findViewById(R.id.search_item_text_word);
+			viewHolder.textSymbols = (TextView) convertView.findViewById(R.id.search_item_text_symbols);
+			viewHolder.textExample = (TextView) convertView.findViewById(R.id.search_item_text_example);
+			viewHolder.textContent = (TextView) convertView.findViewById(R.id.search_item_text_content);
 			convertView.setTag(viewHolder);
 		}else{
 			viewHolder = (ViewHolder) convertView.getTag();

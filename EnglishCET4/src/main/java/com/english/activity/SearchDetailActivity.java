@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.english.cet4.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
@@ -40,7 +41,7 @@ public class SearchDetailActivity extends Activity implements OnClickListener {
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.search_detail_layout);
+		super.setContentView(R.layout.search_detail_layout);
 		initData();
 		initView();
 		setData();
@@ -61,16 +62,16 @@ public class SearchDetailActivity extends Activity implements OnClickListener {
 	}
 
 	private void initView() {
-		textWord = (TextView) super.findViewById(com.english.cet4.R.id.search_detail_text_word);
-		textContent = (TextView) super.findViewById(com.english.cet4.R.id.search_detail_text_content);
-		textSymbols = (TextView) super.findViewById(com.english.cet4.R.id.search_detail_text_symbols);
-		textExample1 = (TextView) super.findViewById(com.english.cet4.R.id.search_detail_text_example1);
-		ad1Layout = (LinearLayout) super.findViewById(com.english.cet4.R.id.search_detail_layout_ad1);
-		ad2Layout = (LinearLayout) super.findViewById(com.english.cet4.R.id.search_detail_layout_ad2);
-		buttonAdd = (ImageButton) super.findViewById(com.english.cet4.R.id.search_detail_button_add);
+		textWord = (TextView) super.findViewById(R.id.search_detail_text_word);
+		textContent = (TextView) super.findViewById(R.id.search_detail_text_content);
+		textSymbols = (TextView) super.findViewById(R.id.search_detail_text_symbols);
+		textExample1 = (TextView) super.findViewById(R.id.search_detail_text_example1);
+		ad1Layout = (LinearLayout) super.findViewById(R.id.search_detail_layout_ad1);
+		ad2Layout = (LinearLayout) super.findViewById(R.id.search_detail_layout_ad2);
+		buttonAdd = (ImageButton) super.findViewById(R.id.search_detail_button_add);
 		textExample1.setMovementMethod(ScrollingMovementMethod.getInstance());
 		textContent.setMovementMethod(ScrollingMovementMethod.getInstance());
-        buttonPlay = (ImageButton)findViewById(com.english.cet4.R.id.search_detail_button_volume);
+        buttonPlay = (ImageButton)findViewById(R.id.search_detail_button_volume);
 
         buttonPlay.setOnClickListener(this);
         buttonAdd.setOnClickListener(this);
@@ -85,11 +86,11 @@ public class SearchDetailActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.search_detail_button_add:
+		case R.id.search_detail_button_add:
 			eOperate.updateWordIsKnownById(false, wordInfo.getId());
 			Toast.makeText(SearchDetailActivity.this, "已添加到生词库", Toast.LENGTH_SHORT).show();
 			break;
-        case com.english.cet4.R.id.search_detail_button_volume:
+        case R.id.search_detail_button_volume:
 			if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
 				mPlayer.playTheWordTune(wordInfo.getWord());
 			}else{

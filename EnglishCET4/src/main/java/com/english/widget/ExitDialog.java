@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.english.cet4.R;
 import com.english.database.EnglishDatabaseHelper;
 
 public class ExitDialog extends AlertDialog implements OnClickListener {
@@ -25,13 +26,13 @@ public class ExitDialog extends AlertDialog implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(com.english.cet4.R.layout.exit_dialog);
+		super.setContentView(R.layout.exit_dialog);
 		
 		initView();
 	}
 	private void initView() {
-		butConfirm = (Button) findViewById(com.english.cet4.R.id.dialog_exit_button_confirm);
-		butCancel = (Button) findViewById(com.english.cet4.R.id.dialog_exit_button_cancel);
+		butConfirm = (Button) findViewById(R.id.dialog_exit_button_confirm);
+		butCancel = (Button) findViewById(R.id.dialog_exit_button_cancel);
 		
 		butConfirm.setOnClickListener(this);
 		butCancel.setOnClickListener(this);
@@ -40,8 +41,8 @@ public class ExitDialog extends AlertDialog implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case com.english.cet4.R.id.dialog_exit_button_confirm:
-			butConfirm.setBackgroundColor(mActivity.getResources().getColor(com.english.cet4.R.color.textview_light_green));
+		case R.id.dialog_exit_button_confirm:
+			butConfirm.setBackgroundColor(mActivity.getResources().getColor(R.color.textview_light_green));
 			ExitDialog.this.dismiss();
 			if(mHelper != null){
 				mHelper.close();
@@ -49,8 +50,8 @@ public class ExitDialog extends AlertDialog implements OnClickListener {
 			}
 			mActivity.finish();
 			break;
-		case com.english.cet4.R.id.dialog_exit_button_cancel:
-			butCancel.setBackgroundColor(mActivity.getResources().getColor(com.english.cet4.R.color.textview_light_green));
+		case R.id.dialog_exit_button_cancel:
+			butCancel.setBackgroundColor(mActivity.getResources().getColor(R.color.textview_light_green));
 			ExitDialog.this.dismiss();
 			break;
 		}
