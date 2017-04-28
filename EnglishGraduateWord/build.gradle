@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.english.word"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 3
+        versionName "1.6"
+        multiDexEnabled true
+        manifestPlaceholders=[APP_CHANNEL_VALUE: "app"]
+    }
+
+    signingConfigs{
+        debug{}
+        release{
+            storeFile file('../keystore/english_key.jks')
+            storePassword 'malijie920'
+            keyAlias 'english'
+            keyPassword 'malijie920'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    productFlavors {
+        yingyongbao {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"yingyongbao" ]
+        }
+
+        qihu360 {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"360" ]
+        }
+
+        wandoujia {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"wandoujia" ]
+        }
+
+        xiaomi {
+            manifestPlaceholders = [ APP_CHANNEL_VALUE:"xiaomi" ]
+        }
+
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:multidex:1.0.0'
+    compile files('libs/alipaysdk.jar')
+    compile files('libs/alipaysecsdk.jar')
+    compile files('libs/alipayutdid.jar')
+    compile files('libs/AppOffer_2.4.9.jar')
+    compile files('libs/libammsdk.jar')
+    compile files('libs/payecopluginjar.jar')
+    compile files('libs/TenpayServiceSDK_V5.0.jar')
+    compile files('libs/UPPayAssistEx.jar')
+    compile files('libs/UPPayPluginExPro.jar')
+    compile files('libs/WanpuPay_4.2.2.jar')
+}
