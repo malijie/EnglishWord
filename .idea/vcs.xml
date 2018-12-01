@@ -2,8 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/CommonLib" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/EnglishGET" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/PayLib" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/CommonLib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EnglishGET" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PayLib" vcs="Git" />
   </component>
 </project>
