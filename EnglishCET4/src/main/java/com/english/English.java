@@ -3,7 +3,6 @@ package com.english;
 import android.app.Application;
 import android.content.Context;
 
-import com.english.pay.PayManager;
 import com.english.util.Logger;
 
 /**

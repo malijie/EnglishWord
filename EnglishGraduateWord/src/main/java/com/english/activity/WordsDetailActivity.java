@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.english.English;
 import com.english.ad.WapManager;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;

@@ -19,9 +19,10 @@ import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
-import com.english.pay.PayManager;
 import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
+import com.pay.lib.pay.PayBaseInfo;
+import com.pay.lib.pay.PayManager;
 
 public class UnknownWordDetailActivity extends Activity implements OnClickListener {
 	private WordInfo mWordInfo = null;
@@ -98,10 +99,10 @@ public class UnknownWordDetailActivity extends Activity implements OnClickListen
 					mPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
 					Util.showAlertDialog(this,
-							PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
+							PayBaseInfo.ITEM_ENGLISH_VOICE, PayBaseInfo.ITEM_ENGLISH_VOICE_DESCR,"", new IDialogOnClickListener() {
 								@Override
 								public void onClick() {
-									PayManager.getInstance(UnknownWordDetailActivity.this).pay(UnknownWordDetailActivity.this);
+									PayManager.getInstance(UnknownWordDetailActivity.this).payForEnglishVoice();
 								}
 							});
 

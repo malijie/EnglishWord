@@ -104,6 +104,7 @@ public class SharedPreferenceUtil {
 	}
 
 	public static boolean getPayResult(Context context){
+//		return true;
 		return context.getSharedPreferences(PREF_PAY_RESULT, Context.MODE_PRIVATE).getBoolean(PREF_PAY_RESULT_KEY,false);
 	}
 }

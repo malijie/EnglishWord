@@ -7,9 +7,10 @@ package com.english.util;
  */
 public class Profile {
 	public static final int BOTTOM_SELECT_WORD = 0;
-	public static final int BOTTOM_SELECT_SEARCH = 1;
-	public static final int BOTTOM_SELECT_UNKNOWNWORD =2;
-	public static final int BOTTOM_SELECT_SETTING = 3;
+	public static final int BOTTOM_SELECT_VIDEO = 1;
+	public static final int BOTTOM_SELECT_SEARCH = 2;
+	public static final int BOTTOM_SELECT_UNKNOWNWORD =3;
+	public static final int BOTTOM_SELECT_SETTING = 4;
 	
 	/**	 �Ķ������ʼ���	 */
 	public static final int READING_BEGIN_DATE = 1994;

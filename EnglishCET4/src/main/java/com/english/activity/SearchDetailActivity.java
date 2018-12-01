@@ -17,11 +17,10 @@ import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
-import com.english.pay.PayManager;
 import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
-
-import static com.english.media.EnglishMediaPlayer.mEnglishMediaPlayer;
+import com.pay.lib.pay.PayBaseInfo;
+import com.pay.lib.pay.PayManager;
 
 public class SearchDetailActivity extends Activity implements OnClickListener {
 	private TextView textWord = null;
@@ -95,10 +94,10 @@ public class SearchDetailActivity extends Activity implements OnClickListener {
 				mPlayer.playTheWordTune(wordInfo.getWord());
 			}else{
 				Util.showAlertDialog(this,
-						PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
+						PayBaseInfo.ITEM_ENGLISH_VOICE, PayBaseInfo.ITEM_ENGLISH_VOICE_DESCR,"", new IDialogOnClickListener() {
 							@Override
 							public void onClick() {
-								PayManager.getInstance(SearchDetailActivity.this).pay(SearchDetailActivity.this);
+								PayManager.getInstance(SearchDetailActivity.this).payForEnglishVoice();
 							}
 						});
 

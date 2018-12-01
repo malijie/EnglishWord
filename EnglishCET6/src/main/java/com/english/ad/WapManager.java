@@ -14,7 +14,7 @@ public class WapManager {
 
     private WapManager(Context context){
         mAppConnect = AppConnect.getInstance(context);
-        mAppConnect.initUninstallAd(context);
+//        mAppConnect.initUninstallAd(context);
     }
 
     public static WapManager getInstance(Context context){
@@ -31,7 +31,7 @@ public class WapManager {
 
 
     public void close(Context context){
-        mAppConnect.releaseUninstallAd(context);
+//        mAppConnect.releaseUninstallAd(context);
         mAppConnect.close();
     }
 

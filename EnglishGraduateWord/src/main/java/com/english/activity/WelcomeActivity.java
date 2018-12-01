@@ -11,7 +11,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 
 import com.english.English;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.config.Config;
 import com.english.config.Const;
 import com.english.util.FileUtil;

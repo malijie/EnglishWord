@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.database.EnglishDatabaseHelper;
 
 public class ExitDialog extends AlertDialog implements OnClickListener {

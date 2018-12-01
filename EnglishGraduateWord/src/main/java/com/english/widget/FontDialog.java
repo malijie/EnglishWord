@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.util.SharedPreferenceUtil;
 
 public class FontDialog extends AlertDialog implements View.OnClickListener{

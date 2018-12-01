@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CommonLib/CommonLib.iml" filepath="$PROJECT_DIR$/CommonLib/CommonLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/EnglishCET4/EnglishCET4.iml" filepath="$PROJECT_DIR$/EnglishCET4/EnglishCET4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EnglishCET6/EnglishCET6.iml" filepath="$PROJECT_DIR$/EnglishCET6/EnglishCET6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EnglishGET/EnglishGET.iml" filepath="$PROJECT_DIR$/EnglishGET/EnglishGET.iml" />
       <module fileurl="file://$PROJECT_DIR$/EnglishWord.iml" filepath="$PROJECT_DIR$/EnglishWord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PayLib/PayLib.iml" filepath="$PROJECT_DIR$/PayLib/PayLib.iml" />
     </modules>
   </component>
 </project>

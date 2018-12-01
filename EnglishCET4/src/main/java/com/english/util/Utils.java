@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.english.English;
 import com.english.cet4.R;
 import com.english.inter.IDialogClickListener;
 
@@ -23,6 +24,10 @@ public class Utils {
      */
     public static View getView(Context context, int res){
         return LayoutInflater.from(context).inflate(res,null);
+    }
+
+    public static View getView(int res){
+        return LayoutInflater.from(English.mContext).inflate(res,null);
     }
 
     /**

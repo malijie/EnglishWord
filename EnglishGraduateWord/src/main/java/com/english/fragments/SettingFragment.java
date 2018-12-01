@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 
 import com.english.activity.HelpAndTipActivity;
 import com.english.ad.WapManager;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.widget.FontDialog;
 
 

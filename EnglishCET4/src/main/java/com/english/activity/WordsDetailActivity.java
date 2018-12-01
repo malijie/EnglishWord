@@ -23,10 +23,11 @@ import com.english.database.EnglishDatabaseHelper;
 import com.english.inter.IDialogOnClickListener;
 import com.english.media.EnglishMediaPlayer;
 import com.english.model.WordInfo;
-import com.english.pay.PayManager;
 import com.english.util.PermissionController;
 import com.english.util.SharedPreferenceUtil;
 import com.english.util.Util;
+import com.pay.lib.pay.PayBaseInfo;
+import com.pay.lib.pay.PayManager;
 import com.wanpu.pay.PayConnect;
 
 import java.text.SimpleDateFormat;
@@ -196,14 +197,16 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 					if(PermissionController.checkPermission(this)){
 						WapManager.getInstance(this);
 						PayConnect.getInstance(this);
-						Util.showAlertDialog(WordsDetailActivity.this,
-								PayManager.PAY_DIALOG_TITLE, PayManager.PAY_DIALOG_CONTENT,"", new IDialogOnClickListener() {
+						Util.showAlertDialog(this,
+								PayBaseInfo.ITEM_ENGLISH_VOICE, PayBaseInfo.ITEM_ENGLISH_VOICE_DESCR,"", new IDialogOnClickListener() {
 									@Override
 									public void onClick() {
-										mPayManager.pay(WordsDetailActivity.this);
+										PayManager.getInstance(WordsDetailActivity.this).payForEnglishVoice();
 									}
 								});
 
+					}else{
+						Toast.makeText(WordsDetailActivity.this,"购买失败，请同意相关权限...",Toast.LENGTH_LONG).show();
 					}
 
 				}

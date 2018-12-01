@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.english.activity.SearchDetailActivity;
 import com.english.adapter.SearchAdapter;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.model.WordInfo;

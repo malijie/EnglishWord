@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.ad.WapManager;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.fragments.SearchFragment;
 import com.english.fragments.SettingFragment;
 import com.english.fragments.UnknowWordsFragment;

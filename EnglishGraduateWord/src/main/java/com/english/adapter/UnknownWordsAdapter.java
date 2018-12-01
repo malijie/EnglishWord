@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.model.WordInfo;
 
 import java.util.List;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.english.English;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.config.Const;
 import com.english.inter.IDialogOnClickListener;
 

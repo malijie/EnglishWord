@@ -1,1 +1,1 @@
-include ':EnglishCET4', ':EnglishCET6', ':EnglishGraduateWord'
+include ':EnglishCET4', ':EnglishCET6', ':EnglishGET', ':CommonLib', ':PayLib'

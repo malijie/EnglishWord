@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.english.adapter.UnknownWordsAdapter;
-import com.english.word.R;
+import com.cet6.activity.R;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
 import com.english.model.WordInfo;
