@@ -191,13 +191,11 @@ public class WordsDetailActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.word_detail_button_volume:
 				//播放单词音频
-				if(SharedPreferenceUtil.getPayResult(getApplicationContext())){
+				if(mPayManager.hasPayedEnglishVoice()){
 					mEnglishMediaPlayer.playTheWordTune(mWordInfo.getWord());
 				}else{
-					if(PermissionController.checkPermission(this)){
-						WapManager.getInstance(this);
-						PayConnect.getInstance(this);
-						Util.showAlertDialog(this,
+					if(PermissionController.checkPermission(WordsDetailActivity.this)){
+						Util.showAlertDialog(WordsDetailActivity.this,
 								PayBaseInfo.ITEM_ENGLISH_VOICE, PayBaseInfo.ITEM_ENGLISH_VOICE_DESCR,"", new IDialogOnClickListener() {
 									@Override
 									public void onClick() {

@@ -19,14 +19,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.common.lib.ui.CustomDialog;
+import com.common.lib.util.PermissionController;
+import com.common.lib.util.ToastManager;
+import com.dl7.player.activity.IjkFullscreenActivity;
+import com.dl7.player.entity.VideoInfo;
 import com.english.activity.SearchDetailActivity;
+import com.english.activity.WordsDetailActivity;
 import com.english.adapter.SearchAdapter;
 import com.english.cet4.R;
 import com.english.config.Const;
 import com.english.database.EnglishDBOperate;
 import com.english.database.EnglishDatabaseHelper;
+import com.english.inter.IDialogOnClickListener;
 import com.english.model.WordInfo;
+import com.english.util.SharedPreferenceUtil;
+import com.english.util.Util;
 import com.english.util.Utils;
+import com.english.video.VideoManager;
+import com.pay.lib.pay.PayBaseInfo;
+import com.pay.lib.pay.PayManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +46,7 @@ import java.util.List;
 public class VideoFragment extends Fragment {
 	private View viewVideo = null;
 	private ListView mListView = null;
+	private PayManager mPayManager = null;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +59,7 @@ public class VideoFragment extends Fragment {
 	}
 
 	private void initData() {
+		mPayManager = PayManager.getInstance(getActivity());
 	}
 
 	private void initView(View viewVideo) {
@@ -107,25 +121,31 @@ public class VideoFragment extends Fragment {
 			holder.mLayout.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
-//					VideoInfo videoInfo  = new VideoInfo();
-//					videoInfo.setUrl(VIDEO_URL[i]);
-//					videoInfo.setName(VIDEO_ITEM[i]);
-//
-//					if (i >= 1) {
-//						if (!mPayManager.hasPayedMath1Video()) {
-//							showPayTip();
-//						} else {
-//							if (PermissionController.checkPermission(getActivity())) {
-//								startGoPlay(i);
-//								VideoManager.saveCurrentInfo(videoInfo);
-//							}
-//
-//						}
-//
-//					}else{
-//						startGoPlay(i);
-//						VideoManager.saveCurrentInfo(videoInfo);
-//					}
+					VideoInfo videoInfo  = new VideoInfo();
+					videoInfo.setUrl(videoUrl[i]);
+					videoInfo.setName(videoItem[i]);
+
+					if (i >= 1) {
+						if (!mPayManager.hasPayedEnglishVideo()) {
+							Util.showAlertDialog(getActivity(),
+									PayBaseInfo.ITEM_ENGLISH_VIDEO, PayBaseInfo.ITEM_ENGLISH_VIDEO_DESCR,"", new IDialogOnClickListener() {
+										@Override
+										public void onClick() {
+											PayManager.getInstance(getActivity()).payForEnglishVideo();
+										}
+									});
+						} else {
+							if (PermissionController.checkPermission(getActivity())) {
+								startGoPlay(i);
+								VideoManager.saveCurrentInfo(videoInfo);
+							}
+
+						}
+
+					}else{
+						startGoPlay(i);
+						VideoManager.saveCurrentInfo(videoInfo);
+					}
 				}
 
 			});
@@ -135,12 +155,12 @@ public class VideoFragment extends Fragment {
 		}
 
 		private void startGoPlay(int index){
-//			VideoInfo videoInfo = new VideoInfo();
-//			videoInfo.setName(videoItem[index]);
-//			videoInfo.setUrl(videoUrl[index]);
-//			Intent i = new Intent(getActivity(), IjkFullscreenActivity.class);
-//			i.putExtra("videoInfo", videoInfo);
-//			startActivity(i);
+			VideoInfo videoInfo = new VideoInfo();
+			videoInfo.setName(videoItem[index]);
+			videoInfo.setUrl(videoUrl[index]);
+			Intent i = new Intent(getActivity(), IjkFullscreenActivity.class);
+			i.putExtra("videoInfo", videoInfo);
+			startActivity(i);
 		}
 
 
@@ -150,6 +170,32 @@ public class VideoFragment extends Fragment {
 			public RelativeLayout mLayout;
 
 		}
+
+	}
+
+	private void showPayTip() {
+//		final CustomDialog dialog = new CustomDialog(getActivity(), R.layout.dialog_layout, PayBaseInfo.ITEM_ENGLISH_VIDEO,PayBaseInfo.ITEM_ENGLISH_VIDEO_DESCR);
+//		dialog.setButtonClickListener(new CustomDialog.DialogButtonListener() {
+//			@Override
+//			public void onConfirm() {
+//
+//				if(PermissionController.checkPermission(getActivity())){
+//					mPayManager.hasPayedEnglishVideo();
+//					dialog.dissmiss();
+//				}else{
+//					ToastManager.showLongMsg("未打开权限，请到设置-应用中打开相关权限后完成支付");
+//					dialog.dissmiss();
+//				}
+//
+//			}
+//
+//			@Override
+//			public void onCancel() {
+//				dialog.dissmiss();
+//			}
+//		});
+//		dialog.show();
+
 
 	}
 

@@ -3,6 +3,7 @@ package com.english;
 import android.app.Application;
 import android.content.Context;
 
+import com.common.lib.base.CommonBase;
 import com.english.util.Logger;
 
 /**
@@ -14,6 +15,7 @@ public class English extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+        CommonBase.init(mContext);
         Logger.d("MLJ", "mContext onCreate=" + mContext);
     }
 }

@@ -72,8 +72,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private void initData() {
         if (PermissionController.checkPermission(this)) {
-            WapManager.getInstance(this);
-            PayConnect.getInstance(this);
+//            WapManager.getInstance(this);
+//            PayConnect.getInstance(this);
         }
     }
 

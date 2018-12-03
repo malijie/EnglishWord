@@ -90,6 +90,15 @@ public class PayManager extends PayBaseInfo implements IPayType {
 
     }
 
+    @Override
+    public void payForEnglishVideo() {
+        String userId = mPayConnect.getDeviceId(ctx);
+        String orderId = String.valueOf(System.currentTimeMillis());
+        mPayConnect.pay(ctx, orderId, userId, ENGLISH_VIDEO_PRICE,
+                ITEM_ENGLISH_VIDEO, ITEM_ENGLISH_VIDEO_DESCR, "", new MyPayResultListener(ENGLISH_VIDEO));
+    }
+
+
     /**
      * 是否购买过高等数学视频服务
      *
@@ -97,6 +106,23 @@ public class PayManager extends PayBaseInfo implements IPayType {
      */
     public boolean hasPayedMath1Video() {
         return SharedPreferenceUtil.loadPayedMath1VideoStatus();
+    }
+
+    /**
+     * 是否购买过高等数学视频服务
+     *
+     * @return
+     */
+    public boolean hasPayedEnglishVideo() {
+        return SharedPreferenceUtil.loadPayedEnglishVideoStatus();
+    }
+
+    /**
+     * 是否购买过真人发音
+     * @return
+     */
+    public boolean hasPayedEnglishVoice() {
+        return SharedPreferenceUtil.loadPayedEnglishVoiceStatus();
     }
 
     /**
@@ -154,6 +180,8 @@ public class PayManager extends PayBaseInfo implements IPayType {
                     SharedPreferenceUtil.savePayedMath3VideoStatus(true);
                 }else if(payGoods == ENGLISH_VOICE){
                     SharedPreferenceUtil.savePayedEnglishVoiceStatus(true);
+                }else if(payGoods == ENGLISH_VIDEO){
+                    SharedPreferenceUtil.savePayedEnglishVideoStatus(true);
                 }
             } else {
                 ToastManager.showShortMsg("购买失败");

@@ -12,8 +12,13 @@ public class PayBaseInfo {
 
     //标准读音
     public static final String ITEM_ENGLISH_VOICE = "美式真人读音";
-    public static final String ITEM_ENGLISH_VOICE_DESCR = "只需￥9.9，购买美式标准发音";
+    public static final String ITEM_ENGLISH_VOICE_DESCR = "只需￥9.9，学习美式标准发音";
     public static final float ENGLISH_VOICE_PRICE = 9.9f;
+
+    //CET VIDEO
+    public static final String ITEM_ENGLISH_VIDEO = "满分名师辅导";
+    public static final String ITEM_ENGLISH_VIDEO_DESCR = "只需￥19.9，查看所有名师满分课程";
+    public static final float ENGLISH_VIDEO_PRICE = 19.9f;
 
     //考研政治名师强化
     public static final String ITEM_POLITICS_VIDEO = "2018考研政治徐涛老师强化课";

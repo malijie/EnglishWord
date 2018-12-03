@@ -14,6 +14,7 @@ public class SharedPreferenceUtil {
 	private static final String SP_PAY_MATH2_INFO = "pay_math2";
 	private static final String SP_PAY_MATH3_INFO = "pay_math3";
 	private static final String SP_PAY_ENGLISH_VOICE = "english_voice";
+	private static final String SP_PAY_ENGLISH_VIDEO = "english_video";
 
 	private static final String PAYED_VIP_KEY = "payed_vip";
 	private static final String PAYED_VIDEO_KEY = "payed_video";
@@ -114,7 +115,7 @@ public class SharedPreferenceUtil {
 				.getBoolean(PAYED_VIDEO_KEY,false);
 	}
 
-	//-------------------真人发音--------------
+	//-------------------CET4--------------
 	public static void savePayedEnglishVoiceStatus(boolean isPayed){
 		CommonBase.mContext.getSharedPreferences(SP_PAY_ENGLISH_VOICE, Context.MODE_PRIVATE).edit()
 				.putBoolean(PAYED_VOICE_KEY,isPayed).commit();
@@ -123,6 +124,17 @@ public class SharedPreferenceUtil {
 	public static boolean loadPayedEnglishVoiceStatus(){
 		return CommonBase.mContext.getSharedPreferences(SP_PAY_ENGLISH_VOICE, Context.MODE_PRIVATE)
 				.getBoolean(PAYED_VOICE_KEY,false);
+	}
+
+
+	public static void savePayedEnglishVideoStatus(boolean isPayed){
+		CommonBase.mContext.getSharedPreferences(SP_PAY_ENGLISH_VIDEO, Context.MODE_PRIVATE).edit()
+				.putBoolean(PAYED_VIDEO_KEY,isPayed).commit();
+	}
+
+	public static boolean loadPayedEnglishVideoStatus(){
+		return CommonBase.mContext.getSharedPreferences(SP_PAY_ENGLISH_VIDEO, Context.MODE_PRIVATE)
+				.getBoolean(PAYED_VIDEO_KEY,false);
 	}
 
 
